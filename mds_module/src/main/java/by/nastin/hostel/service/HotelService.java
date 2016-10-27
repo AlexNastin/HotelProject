@@ -4,7 +4,6 @@ package by.nastin.hostel.service;
 import by.nastin.hostel.entity.Hotel;
 
 public interface HotelService {
-
     Hotel create(Hotel hotel);
 
     Hotel getById(Integer id);
@@ -12,5 +11,4 @@ public interface HotelService {
     Hotel update(Hotel hotel);
 
     void delete(Integer id);
-
 }
