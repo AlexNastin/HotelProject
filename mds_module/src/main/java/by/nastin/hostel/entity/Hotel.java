@@ -1,9 +1,7 @@
 package by.nastin.hostel.entity;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +13,8 @@ public class Hotel extends BaseEntity {
     private byte star;
     @Column(name = "name")
     private String name;
+    @OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Room> rooms;
 
     public Hotel() {
     }
@@ -33,6 +33,14 @@ public class Hotel extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
 
     @Override

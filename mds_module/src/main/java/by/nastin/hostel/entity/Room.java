@@ -23,7 +23,7 @@ public class Room extends BaseEntity {
     private double price;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_hotel", insertable = false, updatable = false)
     private Hotel hotel;
 

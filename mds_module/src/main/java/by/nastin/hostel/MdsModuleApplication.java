@@ -29,8 +29,9 @@ public class MdsModuleApplication {
 		BookingRepository bookingRepository = (BookingRepository) applicationContext.getBean("bookingRepository");
 //		bookingRepository.findAll().forEach(it -> System.out.println(it));
 
-		System.out.println(roomRepository.findRoomByHotel(hotelRepository.findHotelById(2)));
+//		System.out.println(roomRepository.findRoomByHotel(hotelRepository.findHotelById(2)));
 
+		hotelRepository.findAll().forEach(it-> it.getRooms().forEach(it2-> System.out.println(it2.getTypeRoom())));
 
 	}
 }
