@@ -6,7 +6,7 @@
 	<groupId>by.nastin.hotel</groupId>
 	<artifactId>hotelproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>pom</packaging>
 
 	<name>HotelProject</name>
 	<description>Demo project for Spring Boot, Spring Data JPA, Spring Data MongoDB, JUnit</description>

@@ -31,7 +31,7 @@ public class MdsModuleApplication {
 
 //		System.out.println(roomRepository.findRoomByHotel(hotelRepository.findHotelById(2)));
 
-		hotelRepository.findAll().forEach(it-> it.getRooms().forEach(it2-> System.out.println(it2.getTypeRoom())));
+		hotelRepository.findRoomsByHotel().forEach(it-> it.getRooms().forEach(it2->System.out.println(it2.getTypeRoom())));
 
 	}
 }
