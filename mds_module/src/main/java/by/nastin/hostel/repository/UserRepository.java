@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Integer>{
-
+    @Override
     List<User> findAll();
 }

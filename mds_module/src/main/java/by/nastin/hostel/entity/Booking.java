@@ -1,9 +1,9 @@
 package by.nastin.hostel.entity;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
+import by.nastin.hostel.entity.converter.LocalDateAttributeConverter;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
@@ -13,8 +13,10 @@ import java.util.Objects;
 @AttributeOverride(name = "id", column = @Column(name = "id_booking"))
 public class Booking extends BaseEntity {
 
+    @Convert(converter = LocalDateAttributeConverter.class)
     @Column(name = "start_date")
     private LocalDate startDate;
+    @Convert(converter = LocalDateAttributeConverter.class)
     @Column(name = "end_date")
     private LocalDate endDate;
     @Column(name = "id_hotel")
