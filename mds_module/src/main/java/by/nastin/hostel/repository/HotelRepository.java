@@ -10,4 +10,7 @@ import java.util.List;
 public interface HotelRepository extends JpaRepository<Hotel,Integer>{
     @Override
     List<Hotel> findAll();
+
+    Hotel findHotelById(Integer id);
+
 }

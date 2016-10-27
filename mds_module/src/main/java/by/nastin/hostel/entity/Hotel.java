@@ -55,6 +55,6 @@ public class Hotel extends BaseEntity {
         return "Hotel{" +
                 "star=" + star +
                 ", name='" + name + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }

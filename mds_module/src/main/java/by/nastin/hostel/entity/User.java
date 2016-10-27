@@ -101,6 +101,6 @@ public class User extends BaseEntity{
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", gender=" + gender +
-                '}';
+                "} " + super.toString();
     }
 }

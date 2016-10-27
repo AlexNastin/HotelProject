@@ -1,7 +1,11 @@
 package by.nastin.hostel.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "room")
@@ -17,6 +21,11 @@ public class Room extends BaseEntity {
 
     @Column(name = "price")
     private double price;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_hotel", insertable = false, updatable = false)
+    private Hotel hotel;
 
     public Room() {
     }
@@ -45,6 +54,14 @@ public class Room extends BaseEntity {
         this.price = price;
     }
 
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,6 +84,7 @@ public class Room extends BaseEntity {
                 "idHotel=" + idHotel +
                 ", typeRoom=" + typeRoom +
                 ", price=" + price +
-                '}';
+                ", hotel=" + hotel +
+                "} " + super.toString();
     }
 }

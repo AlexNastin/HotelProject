@@ -21,12 +21,16 @@ public class MdsModuleApplication {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext =SpringApplication.run(MdsModuleApplication.class, args);
 		UserRepository userRepository = (UserRepository) applicationContext.getBean("userRepository");
-		userRepository.findAll().forEach(it -> System.out.println(it));
+//		userRepository.findAll().forEach(it -> System.out.println(it));
 		HotelRepository hotelRepository = (HotelRepository) applicationContext.getBean("hotelRepository");
-		hotelRepository.findAll().forEach(it -> System.out.println(it));
+//		hotelRepository.findAll().forEach(it -> System.out.println(it));
 		RoomRepository roomRepository = (RoomRepository) applicationContext.getBean("roomRepository");
-		roomRepository.findAll().forEach(it -> System.out.println(it));
+//		roomRepository.findAll().forEach(it -> System.out.println(it.getHotel()));
 		BookingRepository bookingRepository = (BookingRepository) applicationContext.getBean("bookingRepository");
-		bookingRepository.findAll().forEach(it -> System.out.println(it));
+//		bookingRepository.findAll().forEach(it -> System.out.println(it));
+
+		System.out.println(roomRepository.findRoomByHotel(hotelRepository.findHotelById(2)));
+
+
 	}
 }

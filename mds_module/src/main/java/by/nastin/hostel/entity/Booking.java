@@ -5,8 +5,8 @@ import by.nastin.hostel.entity.converter.LocalDateAttributeConverter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "booking")
@@ -70,14 +70,32 @@ public class Booking extends BaseEntity {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Booking booking = (Booking) o;
+        return idHotel == booking.idHotel &&
+                idRoom == booking.idRoom &&
+                idUser == booking.idUser &&
+                Objects.equals(startDate, booking.startDate) &&
+                Objects.equals(endDate, booking.endDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), startDate, endDate, idHotel, idRoom, idUser);
+    }
+
+    @Override
     public String toString() {
         return "Booking{" +
                 "startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", idHostel=" + idHotel +
+                ", idHotel=" + idHotel +
                 ", idRoom=" + idRoom +
                 ", idUser=" + idUser +
-                '}';
+                "} " + super.toString();
     }
 }
 
