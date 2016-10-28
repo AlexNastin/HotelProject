@@ -4,7 +4,9 @@ import by.nastin.hostel.entity.Booking;
 import by.nastin.hostel.repository.BookingRepository;
 import by.nastin.hostel.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BookingServiceImpl implements BookingService {
 
     @Autowired

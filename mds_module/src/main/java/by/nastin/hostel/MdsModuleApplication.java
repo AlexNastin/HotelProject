@@ -10,12 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
 import java.util.ArrayList;
 
 @SpringBootApplication
 @Import(DataSourceConfig.class)
+@ComponentScan("by.nastin")
 public class MdsModuleApplication {
 
 	public static void main(String[] args) {
@@ -30,7 +32,7 @@ public class MdsModuleApplication {
 //		bookingRepository.findAll().forEach(it -> System.out.println(it));
 
 //		System.out.println(roomRepository.findRoomByHotel(hotelRepository.findHotelById(2)));
-
+		System.out.println(hotelRepository.getClass());
 		hotelRepository.findRoomsByHotel().forEach(it-> it.getRooms().forEach(it2->System.out.println(it2.getTypeRoom())));
 
 	}

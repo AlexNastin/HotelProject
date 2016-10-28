@@ -19,4 +19,6 @@ public interface HotelRepository extends JpaRepository<Hotel,Integer>{
     @Query("select h from Hotel h join fetch h.rooms")
     List<Hotel> findRoomsByHotel();
 
+
+
 }

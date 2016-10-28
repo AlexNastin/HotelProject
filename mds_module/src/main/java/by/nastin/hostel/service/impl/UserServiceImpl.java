@@ -4,7 +4,11 @@ import by.nastin.hostel.entity.User;
 import by.nastin.hostel.repository.UserRepository;
 import by.nastin.hostel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -29,4 +33,11 @@ public class UserServiceImpl implements UserService {
     public void delete(Integer id) {
         userRepository.delete(id);
     }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+
 }

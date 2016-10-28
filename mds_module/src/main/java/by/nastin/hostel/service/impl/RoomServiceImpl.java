@@ -4,7 +4,9 @@ import by.nastin.hostel.entity.Room;
 import by.nastin.hostel.repository.RoomRepository;
 import by.nastin.hostel.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RoomServiceImpl implements RoomService {
 
     @Autowired

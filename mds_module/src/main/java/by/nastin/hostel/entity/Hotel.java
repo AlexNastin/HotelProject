@@ -17,6 +17,7 @@ public class Hotel extends BaseEntity {
     private List<Room> rooms;
 
     public Hotel() {
+
     }
 
     public byte getStar() {
