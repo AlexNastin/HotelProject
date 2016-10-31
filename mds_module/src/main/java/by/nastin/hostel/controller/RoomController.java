@@ -16,7 +16,7 @@ public class RoomController {
     @Autowired
     private RoomService roomService;
 
-    @RequestMapping(path = "create", method = RequestMethod.POST)
+    @RequestMapping(path = "/create", method = RequestMethod.POST)
     public Room create(@Valid @RequestBody Room room) {
         return  roomService.create(room);
     }
