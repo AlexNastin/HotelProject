@@ -4,12 +4,16 @@ import by.nastin.hostel.entity.Room;
 import by.nastin.hostel.repository.RoomRepository;
 import by.nastin.hostel.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class RoomServiceImpl implements RoomService {
 
     @Autowired
+    @Qualifier("roomRepository")
     private RoomRepository roomRepository;
 
     @Override
@@ -27,7 +31,6 @@ public class RoomServiceImpl implements RoomService {
         return roomRepository.save(room);
     }
 
-    @Override
     public void delete(Integer id) {
         roomRepository.delete(id);
     }
