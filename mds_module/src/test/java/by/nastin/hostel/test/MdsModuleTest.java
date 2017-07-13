@@ -10,11 +10,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@WebAppConfiguration
 public class MdsModuleTest {
 
-    @Autowired
-    private ApplicationContext applicationContext;
 
     @Test
     public void contextLoads() {

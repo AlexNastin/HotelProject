@@ -11,38 +11,29 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.sql.DataSource;
 
-
 @Configuration
 @EnableJpaRepositories(basePackages = "by.nastin.hostel.repository")
-@PropertySource(value = "file:project.properties")
 public class DataSourceConfig {
 
-    @Value("${mds_module.datasource.hikari.driverClassName}")
+    @Value("${spring.datasource.hikari.driver-class-name}")
     private String driver;
-    @Value("${mds_module.datasource.hikari.url}")
+    @Value("${spring.datasource.hikari.jdbc-url}")
     private String url;
-    @Value("${mds_module.datasource.hikari.username}")
+    @Value("${spring.datasource.hikari.username}")
     private String username;
-    @Value("${mds_module.datasource.hikari.password}")
+    @Value("${spring.datasource.hikari.password}")
     private String password;
-    @Value("${mds_module.datasource.hibernate.dialect}")
-    private String dialect;
-    @Value("${mds_module.datasource.hibernate.hbm2ddl.auto}")
-    private String hbm2ddlAuto;
-    @Value("${mds_module.datasource.hikari.maximum-pool-size}")
+    @Value("${spring.datasource.hikari.maximum-pool-size}")
     private Integer poolSize;
-    @Value("${mds_module.datasource.hikari.pool-name}")
-    private String poolName;
 
     @Bean(destroyMethod = "close")
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setDriverClassName(driver);
         hikariConfig.setJdbcUrl(url);
         hikariConfig.setUsername(username);
         hikariConfig.setPassword(password);
         hikariConfig.setMaximumPoolSize(poolSize);
-        hikariConfig.setPoolName(poolName);
         HikariDataSource dataSource = new HikariDataSource(hikariConfig);
         return dataSource;
     }
